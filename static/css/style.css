@@ -111,6 +111,9 @@ button {
 
 .w-btn-indigo {
   background-color: aliceblue;
+  background-color: #ff00ff; /* 형광색: 마젠타 */
+  border: none;
+  animation: shiningAnimation 0.5s infinite;
 }
 
 .w-btn-indigo-outline {
@@ -120,4 +123,19 @@ button {
 .w-btn-indigo-outline:hover {
   color: #1e6b7b;
   background: aliceblue;
+}
+
+@keyframes shiningAnimation {
+  0% {
+    background-color: #ff00ff; /* 시작 색상: 마젠타 */
+    box-shadow: 0 0 10px 5px #ff00ff; /* 시작 그림자 효과: 마젠타 */
+  }
+  50% {
+    background-color: #00ff00; /* 중간 색상: 녹색 */
+    box-shadow: 0 0 20px 10px #00ff00; /* 중간 그림자 효과: 녹색 */
+  }
+  100% {
+    background-color: #ff00ff; /* 끝 색상: 마젠타 */
+    box-shadow: 0 0 10px 5px #ff00ff; /* 끝 그림자 효과: 마젠타 */
+  }
 }
