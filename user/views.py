@@ -7,9 +7,10 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def main(request):
-    return render(request, "index.html")  
+    return render(request, "map.html")  
 
 def signup_view(request):
+
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':
         user_id = request.POST.get('user_id')
@@ -32,10 +33,10 @@ def signup_view(request):
         # 로그인 한다
         auth.login(request, user)
         # home으로 돌려보내준다     
-        return render(request, "order.html")  
+        return render(request, "modal.html")  
         # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     else:  
-        return render(request, 'order.html')
+        return render(request, 'modal.html')
 
 # def order_view(request):
 
