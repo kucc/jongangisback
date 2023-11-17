@@ -9,12 +9,13 @@
   <body>
     <!-- 지도를 표시할 div 입니다 -->
     <div id="map" style="width: 100%; height: 720px"></div>
-    <form id="storeForm">
+    <form id="storeForm" action="/" method="post">
+    {% csrf_token %}
       <input type="hidden" id="store-id" name="store_id" />
     </form>
     <script
       type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey="
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1d31433ea493ae011d9cc33d89c0e62e"
     ></script>
     <script>
       var mapContainer = document.getElementById("map"), // 지도를 표시할 div
@@ -76,6 +77,7 @@
       ];
 
       for (var i = 0; i < positions.length; i++) {
+        const position = positions[i]
         // 마커 이미지의 이미지 주소입니다
         var imageSrc = positions[i].img_src;
         // 마커 이미지의 이미지 크기 입니다
@@ -94,13 +96,14 @@
         });
 
         kakao.maps.event.addListener(marker, "click", function () {
-          function sendDataToBackend() {
-            document.getElementById("store-id").value = positions[i].store_id;
+            document.getElementById("store-id").value = position.store_id;
+            console.log(2)
 
             var storeForm = document.getElementById("storeForm");
+            console.log(3)
 
             storeForm.submit();
-          }
+          
         });
       }
     </script>

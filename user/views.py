@@ -7,6 +7,10 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def main(request):
+    if request.method == 'POST':
+        store_id = request.POST.get('store_id')
+        print(store_id)
+        return render(request, "ranking.html", {'store_id' : store_id})
     return render(request, "map.html")  
 
 def signup_view(request):
@@ -43,7 +47,6 @@ def signup_view(request):
 # def order_view(request):
 
     
-
 
 # def order(request):
 #     user = request.user
