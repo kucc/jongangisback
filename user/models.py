@@ -5,7 +5,7 @@ from django.db import models
 # custom user model 사용 시 UserManager 클래스와 create_user, create_superuser 함수가 정의되어 있어야 함
 class UserManager(BaseUserManager):
 	# 필수로 필요한 데이터를 선언
-    def create_user(self, user_id, people, store_id, soju_quantity, beer_quantity, makguli_quantity, alcohol = 0, password = None):
+    def create_user(self, user_id, people, store_id, soju_quantity, beer_quantity, makguli_quantity, alcohol, password = None):
         if not user_id:
             raise ValueError("Users must have id")
         user = self.model(
@@ -22,7 +22,7 @@ class UserManager(BaseUserManager):
         return user 
 
     # python manage.py createsuperuser 사용 시 해당 함수가 사용됨
-    def create_superuser(self, user_id, people, store_id, soju_quantity, beer_quantity, makguli_quantity, alcohol = 0, password=None):
+    def create_superuser(self, user_id, people, store_id, soju_quantity, beer_quantity, makguli_quantity, alcohol, password=None):
         user = self.create_user(
             user_id = user_id,
             people = people,
@@ -47,7 +47,7 @@ class User(AbstractBaseUser):
     soju_quantity = models.IntegerField("소주 병수")
     beer_quantity = models.IntegerField("맥주 병수")
     makguli_quantity = models.IntegerField("막걸리 병수")
-    alcohol = models.IntegerField("알코올량")
+    alcohol = models.DecimalField("알코올량", max_digits= 20, decimal_places= 5)
 
     # 활성화 여부 (기본값은 True)
     is_active = models.BooleanField(default=True)
@@ -57,7 +57,7 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'user_id'
-    REQUIRED_FIELDS = ['people', 'store_id', 'soju_quantity', 'beer_quantity', 'makguli_quantity']
+    REQUIRED_FIELDS = ['people', 'store_id', 'soju_quantity', 'beer_quantity', 'makguli_quantity','alcohol']
 
     objects = UserManager()
 

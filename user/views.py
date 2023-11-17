@@ -19,6 +19,7 @@ def signup_view(request):
         soju_quantity = request.POST.get('soju_quantity')
         beer_quantity = request.POST.get('beer_quantity')
         makguli_quantity = request.POST.get('makguli_quantity')
+        alcohol = (float(soju_quantity) * 0.076 + float(beer_quantity) * 0.031 + float(makguli_quantity) * 0.031) / float(people)
         password = "a1b2c3d4"
         # form의 완성도 검증
             # user 객체를 새로 생성
@@ -28,7 +29,8 @@ def signup_view(request):
                                         store_id = store_id,
                                         soju_quantity = soju_quantity,
                                         beer_quantity = beer_quantity,
-                                        makguli_quantity = makguli_quantity
+                                        makguli_quantity = makguli_quantity,
+                                        alcohol = alcohol
                                         )
         # 로그인 한다
         auth.login(request, user)

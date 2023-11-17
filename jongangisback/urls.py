@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('', views.main, name="map"),
+    path('ranking/', include('ranking.urls')),
 ]
