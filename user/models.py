@@ -12,10 +12,10 @@ class UserManager(BaseUserManager):
             user_id = user_id,
             people = people,
             store_id = store_id,
-            soju_quantity = 0,
-            beer_quantity = 0,
-            makguli_quantity = 0,
-            alcohol = 0,
+            # soju_quantity = 0,
+            # beer_quantity = 0,
+            # makguli_quantity = 0,
+            # alcohol = 0,
         )
         user.set_password(password) # change user password
         user.save(using=self._db)
@@ -23,16 +23,15 @@ class UserManager(BaseUserManager):
 
     # python manage.py createsuperuser 사용 시 해당 함수가 사용됨
     def create_superuser(self, user_id, people, store_id, password=None):
-      
         user = self.create_user(
             user_id = user_id,
             people = people,
             store_id = store_id,
             password = password,
-            soju_quantity = 0,
-            beer_quantity = 0,
-            makguli_quantity = 0,
-            alcohol = 0,
+            # soju_quantity = 0,
+            # beer_quantity = 0,
+            # makguli_quantity = 0,
+            # alcohol = 0,
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -58,7 +57,7 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'user_id'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['people', 'store_id']
 
     objects = UserManager()
 
