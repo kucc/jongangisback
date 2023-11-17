@@ -5,33 +5,33 @@ from django.db import models
 # custom user model 사용 시 UserManager 클래스와 create_user, create_superuser 함수가 정의되어 있어야 함
 class UserManager(BaseUserManager):
 	# 필수로 필요한 데이터를 선언
-    def create_user(self, user_id, people, store_id, password):
+    def create_user(self, user_id, people, store_id, soju_quantity = 0, beer_quantity = 0, makguli_quantity = 0, alcohol = 0, password = None):
         if not user_id:
             raise ValueError("Users must have id")
         user = self.model(
             user_id = user_id,
             people = people,
             store_id = store_id,
-            # soju_quantity = 0,
-            # beer_quantity = 0,
-            # makguli_quantity = 0,
-            # alcohol = 0,
+            soju_quantity = soju_quantity,
+            beer_quantity = beer_quantity,
+            makguli_quantity = makguli_quantity,
+            alcohol = alcohol
         )
         user.set_password(password) # change user password
         user.save(using=self._db)
         return user 
 
     # python manage.py createsuperuser 사용 시 해당 함수가 사용됨
-    def create_superuser(self, user_id, people, store_id, password=None):
+    def create_superuser(self, user_id, people, store_id, soju_quantity = 0, beer_quantity = 0, makguli_quantity = 0, alcohol = 0, password=None):
         user = self.create_user(
             user_id = user_id,
             people = people,
             store_id = store_id,
             password = password,
-            # soju_quantity = 0,
-            # beer_quantity = 0,
-            # makguli_quantity = 0,
-            # alcohol = 0,
+            soju_quantity = soju_quantity,
+            beer_quantity = beer_quantity,
+            makguli_quantity = makguli_quantity,
+            alcohol = alcohol
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -47,7 +47,7 @@ class User(AbstractBaseUser):
     soju_quantity = models.IntegerField("소주 병수")
     beer_quantity = models.IntegerField("맥주 병수")
     makguli_quantity = models.IntegerField("막거리 병수")
-    alcohol = models.IntegerField("알코올량")
+    alcohol = models.IntegerField("알코올량",)
 
     # 활성화 여부 (기본값은 True)
     is_active = models.BooleanField(default=True)
