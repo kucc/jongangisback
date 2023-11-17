@@ -1,15 +1,10 @@
 function doAction() {
-  alert("참가하셨습니다!");
+  let destinationURL = "./modal.html";
+  window.location.href = destinationURL;
 }
 
 async function fetchData() {
   try {
-    // Fetch API를 사용하여 데이터를 가져옴
-    //const response = await fetch('URL_TO_YOUR_API_ENDPOINT'); // 여기에 실제 API 엔드포인트를 넣어주세요.
-
-    //   if (!response.ok) {
-    //     throw new Error('Network response was not ok');
-    //   }
     const myid = "user id 4";
     const data1 = [
       {
@@ -117,7 +112,6 @@ async function fetchData() {
 
     let myNum = document.createElement("div");
     myNum.setAttribute("class", "myNum");
-    console.log(myRank);
     myNum.innerHTML = myRank;
     myUser.appendChild(myNum);
 
