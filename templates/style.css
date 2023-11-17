@@ -1,29 +1,35 @@
+/* Font */
 @font-face {
     font-family: "Harmony_B";
     src: url("./Harmony_B.ttf") format("truetype");
 }
 
+/* Reset */
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Harmony_B";
 }
 
+/* Global Styles */
 html {
     font-size: 62.5%;
 }
 
 body {
-    background: var(--main-blue, #0A62A9);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
-    font-size: 62.5%;
+    font-size: 1.6rem;
+    /* 1rem = 10px, so 62.5% of 16px = 10px */
+    background: var(--main-blue, #0A62A9);
 }
 
+/* Layout */
 div {
-    width: 100%;
-    height: 2rem;
     display: inline-block;
 }
 
@@ -42,56 +48,53 @@ div.right {
 }
 
 button {
-
     margin: 2rem;
     width: 42.7rem;
     height: 12.3rem;
     flex-shrink: 0;
     position: relative;
-    top: 70rem;
-    /* 이동할 거리를 조절합니다. */
+    top: 7rem;
+
 }
 
-.w-btn {
+
+.w-btn,
+.w-btn-outline {
     position: relative;
-    border: none;
     display: inline-block;
     padding: 1.5rem 3rem;
     border-radius: 1.5rem;
     font-family: "Harmony_B";
     box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.2);
     transition: 0.25s;
-
-    color: var(--main-blue, #0A62A9);
-
-    /* Harmony-title */
-
-    font-size: 9rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-
 }
 
+
+.w-btn {
+    color: var(--main-blue, #0A62A9);
+    font-size: 9rem;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
 .w-btn-outline {
-    position: relative;
-    padding: 1.5rem 3rem;
-    border-radius: 1.5rem;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
-    transition: 0.25s;
+}
+
+
+.w-btn-indigo,
+.w-btn-indigo-outline {
+    color: #1e6b7b;
 }
 
 .w-btn-indigo {
     background-color: aliceblue;
-    color: #1e6b7b;
 }
 
 .w-btn-indigo-outline {
     border: 3px solid aliceblue;
-    color: #1e6b7b;
 }
 
 .w-btn-indigo-outline:hover {
