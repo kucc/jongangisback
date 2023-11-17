@@ -3,8 +3,9 @@ from user.models import User
 
 
 def ranking_view(request):
+    store_id = request.GET.get('store_id')
+    print(store_id)
     user = request.user
-    store_id = user.store_id
     try:
         user_id = user.user_id
         filtered_data = User.objects.filter(store_id=store_id)
@@ -42,17 +43,13 @@ def ranking_view(request):
             current_user_data.beer_quantity,
             current_user_data.makguli_quantity,
         ]
-
         context = {
             'top_three_quantities' : top_three_quantities,
         }
         print(context)
-
-
     except AttributeError:
         filtered_data = User.objects.filter(store_id=store_id)
         sorted_data = sorted(filtered_data, key = lambda x: x.alcohol, reverse=True)
-
     # 이름, 인원, 알콜, 소, 맥, 막
         top_three_quantities = [
             sorted_data[0].user_id,
@@ -79,8 +76,8 @@ def ranking_view(request):
         ]
 
         context = {
-            'top_three_quantities' : top_three_quantities,
+            'top_three_quantities' : str(top_three_quantities),
         }
+    
         print(context)
-
-    return render(request, 'ranking.html',context)
+    return render(request, 'ranking.html', (context))

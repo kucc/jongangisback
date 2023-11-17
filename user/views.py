@@ -9,12 +9,11 @@ from django.contrib.auth.decorators import login_required
 def main(request):
     if request.method == 'POST':
         store_id = request.POST.get('store_id')
-        print(store_id)
-        return render(request, "ranking.html", {'store_id' : store_id})
+        return redirect(f'/ranking/?store_id={store_id}')
+        # return render(request, "ranking.html", {'store_id' : store_id})
     return render(request, "map.html")  
 
 def signup_view(request):
-
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':
         user_id = request.POST.get('user_id')

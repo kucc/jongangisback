@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Web Page Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="left"></div>
+    <div class="right">
+        <div class="store-container">춘자 30%</div>
+        <div id="ranking-container">
+        </div>
+        <button class="w-btn w-btn-indigo" type="button" onclick="doAction()">
+            
+        </button>
+    </div>
+    <script>
+        const data1 = {{ top_three_quantities | safe}};
+            
+    </script>
+    <script src="{% static '/script/ranking.js' %}">
+
+    </script>
+</body>
+
+</html>

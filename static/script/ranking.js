@@ -12,13 +12,6 @@ async function fetchData() {
         //   if (!response.ok) {
         //     throw new Error('Network response was not ok');
         //   }
-        const myid = "user id 4";
-        const data1 = [
-            { user_id: 'user id', people: 'people 1', percentage: 0.17, store_id: 'store id 1', soju_quantity: 'soju_quantity', beer_quantity: 'beer_quantity 1', makguli_quantity: 'makguli_quantity 1' },
-            { user_id: 'user id 2', people: 'people 2', percentage: 0.16, store_id: 'store id 2', soju_quantity: 'soju quantity2', beer_quantity: 'beer_quantity 2', makguli_quantity: 'makguli_quantity 2' },
-            { user_id: 'user id 3', people: 'people 3', percentage: 0.17, store_id: 'store id 3', soju_quantity: 'soju', beer_quantity: 'beer_quantity 3', makguli_quantity: 'makguli_quantity 3' },
-            { user_id: 'user id 4', people: 'people 4', percentage: 0.15, store_id: 'store id 4', soju_quantity: 'soju', beer_quantity: 'beer_quantity 4', makguli_quantity: 'makguli_quantity 4' },
-        ];
 
         // 응답 데이터를 JSON 형식으로 파싱
         //onst data = await response.json();
