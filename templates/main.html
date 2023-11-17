@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>Web Page Title</title>
-    <link rel="stylesheet" href="../static/css/font.css" />
-    <link rel="stylesheet" href="../static/css/font.css" />
-    <link rel="stylesheet" href="../static/css/order.css" />
-    <link rel="stylesheet" href="../static/css/modal.css" />
-    <link rel="stylesheet" href="style.css" />
+    <title>가게 랭킹</title>
+    <link rel="stylesheet" href="{% static 'css/font.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/order.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
 
   <body>
@@ -122,10 +122,10 @@
       </div>
       <!-- modal -->
     </div>
-    <script src="ranking.js"></script>
+    <script src="{% static './script/ranking.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script src="../static/script/index.js"></script>
-    <script src="../static/script/count.js"></script>
+    <script src="{% static './script/index.js' %}"></script>
+    <script src="{% static './script/count.js' %}"></script>
   </body>
 </html>
