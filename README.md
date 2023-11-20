@@ -163,7 +163,7 @@
 ### UX/UI
 
 
-<img src = https://github.com/kucc/jongangisback/assets/108336036/47cbe745-7c22-444b-a11f-2c67deac0faa>
+<img src = https://github.com/kucc/jongangisback/assets/108336036/47cbe745-7c22-444b-a11f-2c67deac0faa  height="700" width="900"  >
 
 - API : 리스트 형태로 프론트엔드에 제공
 <img src = https://github.com/kucc/jongangisback/assets/108336036/73dd76bd-358f-4db8-a302-35c87a1bacd3>
